@@ -27,12 +27,39 @@ namespace Proyecto_T3
                 Console.WriteLine("0. SALIR ");
                 Console.WriteLine("INGRESA UN NUMERO PARA JUGAR: ");
                 op = int.Parse(Console.ReadLine());
+
+                switch (op)
+                {
+                    case 1:
+                        Tragamonedas tragamon = new Tragamonedas();
+                        tragamon.Tmonedas();
+                        break;
+                    case 2:
+                        Console.WriteLine("Ruleta no está implementado aún.");
+                        break;
+                    case 3:
+                        Console.WriteLine("Dados no está implementado aún.");
+                        break;
+                    case 4:
+                        Console.WriteLine("Blackjack no está implementado aún.");
+                        break;
+                    case 5:
+                        Console.WriteLine("Adivina el número no está implementado aún.");
+                        break;
+                    case 0:
+                        Console.WriteLine("Gracias por jugar. ¡Hasta la próxima!");
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Intenta de nuevo.");
+                        break;
+                }
+
                 Console.ReadKey();
+                
             }
             while (op != 0);
 
-            Tragamonedas tragamon = new Tragamonedas();
-            tragamon.Tmonedas();
+            
 
 
         }
