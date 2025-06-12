@@ -20,18 +20,19 @@ namespace BiblioCasino
             Console.WriteLine("APUESTE!!!!!!!!");
             int moneda = int.Parse(Console.ReadLine());
             Console.WriteLine("VAMOS, LA SUERTE ESTA CONTIGO");
-            filaspantalla(moneda);
-            Thread.Sleep(1000);
-            filaspantalla(moneda);
-            Thread.Sleep(1000);
-            filaspantalla(moneda);
-            Thread.Sleep(1000);
-            filaspantalla(moneda);
+
+            int PremioTotal = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                PremioTotal = PremioTotal+filaspantalla(moneda);
+                Thread.Sleep(500);
+            }
+            Console.WriteLine("FELICIDADES, GANASTE: " + PremioTotal + " SOLES" );
 
 
-   
+
         }
-        public void filaspantalla(int moneda) 
+        public int filaspantalla(int moneda) 
         {
             string[] simbolos = { "CEREZA", "LIMON", "UVA", "CAMPANA", "7", "BAR" };
             Random rnd = new Random();
@@ -69,22 +70,27 @@ namespace BiblioCasino
             }
 
             // Mostramos el premio
+            int premio = 0;
             if (RepMax == 3)
             {
-                Console.WriteLine("FELICIDADES, GANASTE: " + (moneda * 2));
+                premio = moneda * 2;
+                Console.WriteLine("FELICIDADES, GANASTE: " + (premio));
             }
             else if (RepMax == 4)
             {
-                Console.WriteLine("FELICIDADES, GANASTE: " + (moneda * 3));
+                premio = moneda * 3;
+                Console.WriteLine("FELICIDADES, GANASTE: " + (premio));
             }
             else if (RepMax == 5)
             {
-                Console.WriteLine("FELICIDADES, GANASTE: " + (moneda * 4));
+                premio = moneda * 4;
+                Console.WriteLine("FELICIDADES, GANASTE: " + (premio));
             }
             else 
             {
                 Console.WriteLine("Sigue intentando, la proxima apuesta es tuya!");
             }
+            return premio;
 
         }
     }
