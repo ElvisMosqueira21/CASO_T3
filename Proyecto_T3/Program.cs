@@ -49,9 +49,8 @@ namespace Proyecto_T3
                     case 0:
                         Console.WriteLine("Gracias por jugar. ¡Hasta la próxima!");
                         break;
-                    default:
-                        Console.WriteLine("Opción no válida. Intenta de nuevo.");
-                        break;
+                        
+                       
                 }
 
                 Console.ReadKey();
