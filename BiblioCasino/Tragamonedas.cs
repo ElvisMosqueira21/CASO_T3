@@ -9,6 +9,7 @@ namespace BiblioCasino
 {
     public class Tragamonedas
     {
+        
         public void Tmonedas() 
         {
             Console.Clear();
@@ -16,20 +17,21 @@ namespace BiblioCasino
             Console.WriteLine("Tres coincidencias:    X2 ");
             Console.WriteLine("Cuatro coincidencias:  X3 ");
             Console.WriteLine("Cinco coincidencias:   X4 ");
-            Console.WriteLine("Introduzca la moneda/billete");
+            Console.WriteLine("APUESTE!!!!!!!!");
             int moneda = int.Parse(Console.ReadLine());
             Console.WriteLine("VAMOS, LA SUERTE ESTA CONTIGO");
-            filaspantalla();
+            filaspantalla(moneda);
             Thread.Sleep(1000);
-            filaspantalla();
+            filaspantalla(moneda);
             Thread.Sleep(1000);
-            filaspantalla();
+            filaspantalla(moneda);
             Thread.Sleep(1000);
-            filaspantalla();
+            filaspantalla(moneda);
+
 
    
         }
-        public void filaspantalla() 
+        public void filaspantalla(int moneda) 
         {
             string[] simbolos = { "CEREZA", "LIMON", "UVA", "CAMPANA", "7", "BAR" };
             Random rnd = new Random();
@@ -42,11 +44,48 @@ namespace BiblioCasino
 
             foreach (string leersimbolos in resultado)
             {
-                
+
                 Console.Write($"{leersimbolos,-8}| ");
 
             }
             Console.WriteLine();
+
+            int RepMax = 1;
+            for (int x = 0; x < resultado.Length; x++)
+            {
+                int contar = 1;
+                for (int i  = x + 1; i < resultado.Length; i++)
+                {
+                    if (resultado[x] == resultado[i])
+                    {
+                        contar++;
+                    }
+                }
+
+                if (contar > RepMax)
+                {
+                    RepMax = contar;
+                }
+            }
+
+            // Mostramos el premio
+            if (RepMax == 3)
+            {
+                Console.WriteLine("FELICIDADES, GANASTE: " + (moneda * 2));
+            }
+            else if (RepMax == 4)
+            {
+                Console.WriteLine("FELICIDADES, GANASTE: " + (moneda * 3));
+            }
+            else if (RepMax == 5)
+            {
+                Console.WriteLine("FELICIDADES, GANASTE: " + (moneda * 4));
+            }
+            else 
+            {
+                Console.WriteLine("Sigue intentando, la proxima apuesta es tuya!");
+            }
+
         }
     }
 }

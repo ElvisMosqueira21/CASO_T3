@@ -44,7 +44,8 @@ namespace Proyecto_T3
                         Console.WriteLine("Blackjack no está implementado aún.");
                         break;
                     case 5:
-                        Console.WriteLine("Adivina el número no está implementado aún.");
+                        AdivinaNum adivinaNum = new AdivinaNum();
+                        adivinaNum.NumeroAdivinado();
                         break;
                     case 0:
                         Console.WriteLine("Gracias por jugar. ¡Hasta la próxima!");
