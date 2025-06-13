@@ -29,6 +29,9 @@ namespace BiblioCasino
             }
             Console.WriteLine("FELICIDADES, GANASTE: " + PremioTotal + " SOLES" );
 
+            Console.WriteLine("\nPresiona una tecla para volver al Casino...");
+            Console.ReadKey();
+
 
 
         }

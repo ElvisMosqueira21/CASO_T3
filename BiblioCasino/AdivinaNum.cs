@@ -10,6 +10,7 @@ namespace BiblioCasino
     {
         public void NumeroAdivinado() 
         {
+            Console.Clear();
             Random random = new Random();
             int Valor = 0;
             int opcion;
@@ -21,13 +22,13 @@ namespace BiblioCasino
                 Console.WriteLine("2. Solo números de ((1 - 20)) -> [X4]");
                 Console.WriteLine("3. Solo números de ((1 - 50)) -> [x6]");
                 Console.WriteLine("4. Adivina vocales!! ((a, e, i ,o ,u))");
-                Console.WriteLine("0. Salir");
                 opcion = int.Parse(Console.ReadLine());
 
                 switch (opcion)
                 {
                     case 0:
-                        Console.WriteLine("Saliendo...");
+                        
+                      
                         break;
                     case 1:
                         Console.WriteLine("Ingrese su NÚMERO de la SUERTE🍀 (1-10)");
@@ -127,7 +128,8 @@ namespace BiblioCasino
 
             }
             while (opcion != 4);
-
+            Console.WriteLine("\nPresione una tecla para salir");
+            Console.ReadKey();
         }
     }
 }

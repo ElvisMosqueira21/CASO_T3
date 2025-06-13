@@ -35,7 +35,8 @@ namespace Proyecto_T3
                         tragamon.Tmonedas();
                         break;
                     case 2:
-                        Console.WriteLine("Ruleta no está implementado aún.");
+                        Ruleta laruleta = new Ruleta();
+                        laruleta.ruleta();
                         break;
                     case 3:
                         Console.WriteLine("Dados no está implementado aún.");
