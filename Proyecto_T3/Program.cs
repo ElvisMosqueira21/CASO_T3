@@ -39,7 +39,8 @@ namespace Proyecto_T3
                         laruleta.ruleta();
                         break;
                     case 3:
-                        Console.WriteLine("Dados no está implementado aún.");
+                        Dados juegodados = new Dados();
+                        juegodados.Craps();
                         break;
                     case 4:
                         Console.WriteLine("Blackjack no está implementado aún.");
