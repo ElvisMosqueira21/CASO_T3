@@ -10,7 +10,7 @@ namespace BiblioCasino
     {
         public void NumeroAdivinado() 
         {
-
+            
             Console.Clear();
             float apuesta = 0;
             Random random = new Random();

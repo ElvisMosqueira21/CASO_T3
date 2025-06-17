@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BiblioCasino;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using BiblioCasino;
 
 namespace Proyecto_T3
 {
@@ -11,22 +12,38 @@ namespace Proyecto_T3
     {
         static void Main(string[] args)
         {
-           
+            Console.OutputEncoding = Encoding.UTF8;
 
             int op;
             do
             {
                 Console.Clear();
-                Console.WriteLine("HOLA, BIENVENIDO AL CASINO");
-                Console.WriteLine(" JUEGOS DE HOY: ");
-                Console.WriteLine("1. TRAGAMONEDAS ");
-                Console.WriteLine("2. RULETA ");
-                Console.WriteLine("3. DADOS");
-                Console.WriteLine("4. Blackjack(Veintiuno) ");
-                Console.WriteLine("5. Adivina el numero ");
-                Console.WriteLine("0. SALIR ");
-                Console.WriteLine("INGRESA UN NUMERO PARA JUGAR: ");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
+                Console.WriteLine("░░░░░░░░░░░░BIENVENIDOS AL CASINO░░░░░░░░░░░░");
+                Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("︽≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣︽");
+                Console.WriteLine("ㅐ               JUEGOS DE HOY              ㅐ");
+                Console.WriteLine("ㅐ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ㅐ");
+                Console.WriteLine("ㅐ    ◉ 1.        TRAGAMONEDAS              ㅐ");
+                Console.WriteLine("ㅐ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ㅐ");
+                Console.WriteLine("ㅐ    ◉ 2.           RULETA                 ㅐ");
+                Console.WriteLine("ㅐ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ㅐ");
+                Console.WriteLine("ㅐ    ◉ 3.           DADOS                  ㅐ");
+                Console.WriteLine("ㅐ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ㅐ");
+                Console.WriteLine("ㅐ    ◉ 4.      Blackjack(Veintiuno)        ㅐ");
+                Console.WriteLine("ㅐ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ㅐ");
+                Console.WriteLine("ㅐ    ◉ 5.       Adivina el numero          ㅐ");
+                Console.WriteLine("ㅐ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ㅐ");
+                Console.WriteLine("ㅐ    ◉ 0.            SALIR                 ㅐ");
+                Console.WriteLine("ㅐ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ㅐ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("        INGRESA UN NUMERO PARA JUGAR:         ");
+                Console.ForegroundColor = ConsoleColor.White;
                 op = int.Parse(Console.ReadLine());
+                Console.Beep(1000,400);
+                tono();
 
                 switch (op)
                 {
@@ -43,14 +60,16 @@ namespace Proyecto_T3
                         juegodados.Craps();
                         break;
                     case 4:
-                        Console.WriteLine("Blackjack no está implementado aún.");
+                        Veintiuno juego = new Veintiuno();
+                        juego.Jugar();
+                
                         break;
                     case 5:
                         AdivinaNum adivinaNum = new AdivinaNum();
                         adivinaNum.NumeroAdivinado();
                         break;
                     case 0:
-                        Console.WriteLine("Gracias por jugar. ¡Hasta la próxima!");
+                        Console.WriteLine("Gracias por jugar.Hasta la próxima");
                         break;
                         
                        
@@ -64,6 +83,18 @@ namespace Proyecto_T3
             
 
 
+        }
+        static void tono() 
+        {
+            Console.Beep(659, 120);
+            Console.Beep(758, 120);
+            Console.Beep(880, 120);
+            Console.Beep(987, 120);
+            Console.Beep(1046, 120);
+            Console.Beep(1175, 120);
+            Console.Beep(1318, 120);
+            Console.Beep(880, 120 * 2);
+           
         }
     }
 }

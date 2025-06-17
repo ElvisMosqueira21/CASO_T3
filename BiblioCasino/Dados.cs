@@ -14,14 +14,11 @@ namespace BiblioCasino
             Console.Clear();
             Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
             Console.WriteLine("+                                                             +");
-            Console.WriteLine("+                                                             +");
             Console.WriteLine("+        BIENVENIDO AL JUEGO DE LOS 2DADOS MILLONARIOS        +");
             Console.WriteLine("+                                                             +");
-            Console.WriteLine("+                                                             +");
-            Console.WriteLine("+                                                             +");
             Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
-            Console.WriteLine("REGLAS: SUMA DE DADOS que pierdes: 2 , 3,  12 ");
-            Console.WriteLine("        SUMA DE DADOS que ganas  : 4 , 5 , 6 ,7, 8 ,9 ,10 ,11");
+            Console.WriteLine("REGLAS: SUMA DE DADOS que pierdes: 2 , 3,  12                  ");
+            Console.WriteLine("        SUMA DE DADOS que ganas  : 4 , 5 , 6 ,7, 8 ,9 ,10 ,11  ");
             Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
             Console.WriteLine("+                APUESTA X3 X3 X3 X3 X3                       +");
             Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");

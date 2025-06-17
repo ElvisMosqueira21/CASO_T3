@@ -28,6 +28,7 @@ namespace BiblioCasino
                 Thread.Sleep(500);
             }
             Console.WriteLine("PREMIO MAYOR: " + PremioTotal + " SOLES" );
+            Console.WriteLine("                    (¬‿¬)              ");
 
             Console.WriteLine("\nPresiona una tecla para volver al Casino...");
             Console.ReadKey();
