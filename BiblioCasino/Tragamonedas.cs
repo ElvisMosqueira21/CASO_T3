@@ -27,7 +27,7 @@ namespace BiblioCasino
                 PremioTotal = PremioTotal+filaspantalla(moneda);
                 Thread.Sleep(500);
             }
-            Console.WriteLine("FELICIDADES, GANASTE: " + PremioTotal + " SOLES" );
+            Console.WriteLine("PREMIO MAYOR: " + PremioTotal + " SOLES" );
 
             Console.WriteLine("\nPresiona una tecla para volver al Casino...");
             Console.ReadKey();
@@ -53,7 +53,7 @@ namespace BiblioCasino
 
             }
             Console.WriteLine();
-
+            //Aqui vemos cuantos simbolos se repiten
             int RepMax = 1;
             for (int x = 0; x < resultado.Length; x++)
             {
@@ -72,7 +72,7 @@ namespace BiblioCasino
                 }
             }
 
-            // Mostramos el premio
+            // Mostramos el premio,segun las repeticiones
             int premio = 0;
             if (RepMax == 3)
             {
