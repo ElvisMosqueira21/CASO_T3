@@ -43,7 +43,8 @@ namespace Proyecto_T3
                         juegodados.Craps();
                         break;
                     case 4:
-                        Console.WriteLine("Blackjack no está implementado aún.");
+                        Veintiuno juego = new Veintiuno();
+                        juego.Jugar();
                         break;
                     case 5:
                         AdivinaNum adivinaNum = new AdivinaNum();
