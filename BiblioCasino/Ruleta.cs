@@ -11,8 +11,8 @@ namespace BiblioCasino
         public void ruleta() 
         {
             Console.Clear();
-            Console.WriteLine("             ¡Bienvenido a la Ruleta de Casino!              ");
-            Console.WriteLine("-------Verde: PIERDE--ROJO: X2--NEGRO: X4");
+            Console.WriteLine("             ¡Bienvenido a la Ruleta de Casino!         ");
+            Console.WriteLine("-------Verde: PIERDE--ROJO: X2--NEGRO: X4               ");
             Console.WriteLine("----------------------Apuesta YA------------------------");
             int recompensa = int.Parse(Console.ReadLine());
             Random random = new Random();

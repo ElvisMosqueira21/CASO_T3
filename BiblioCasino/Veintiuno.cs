@@ -119,7 +119,7 @@ namespace BiblioCasino
                         crupierVivo = VerificarPuntos(crupier);
                     }
 
-                    if (crupier.puntos >= 17 && crupier.puntos <= 21)
+                    if (crupier.puntos >= 15 && crupier.puntos <= 21)
                     {
                         Console.WriteLine("El crupier se planta.");
                     }
