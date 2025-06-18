@@ -13,25 +13,37 @@ namespace BiblioCasino
         public void Tmonedas() 
         {
             Console.Clear();
-            Console.WriteLine("BIENVENIDO AL TRAGAMONEDAS");
-            Console.WriteLine("Tres coincidencias:    X2 ");
-            Console.WriteLine("Cuatro coincidencias:  X3 ");
-            Console.WriteLine("Cinco coincidencias:   X4 ");
-            Console.WriteLine("APUESTE!!!!!!!!");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪");
+            Console.WriteLine("▪      BIENVENIDO AL TRAGAMONEDAS     ▪");
+            Console.WriteLine("▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("▪      Tres coincidencias:    X2      ▪");
+            Console.WriteLine("▪      Cuatro coincidencias:  X3      ▪");
+            Console.WriteLine("▪      Cinco coincidencias:   X4      ▪");
+            Console.WriteLine("▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("            APUESTE!!!!!!!!            ");
+            Console.ForegroundColor = ConsoleColor.White;
             int moneda = int.Parse(Console.ReadLine());
             if (moneda > 0)
             {
-                Console.WriteLine("VAMOS, LA SUERTE ESTA CONTIGO");
-
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("***VAMOS, LA SUERTE ESTA CONTIGO***");
+                Console.ForegroundColor = ConsoleColor.White;
                 int PremioTotal = 0;
                 for (int i = 0; i < 4; i++)
                 {
                     PremioTotal = PremioTotal + filaspantalla(moneda);
                     Thread.Sleep(500);
                 }
-                Console.WriteLine("PREMIO MAYOR: " + PremioTotal + " SOLES");
-                Console.WriteLine("                    (¬‿¬)              ");
+                
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(" °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°");
+                Console.WriteLine(" °       PREMIO MAYOR: " + PremioTotal + " SOLES          °");
+                Console.WriteLine(" °°°°°°°°°°°°°°°°°(¬‿¬)°°°°°°°°°°°°°°°°°°°°");
                 Console.ForegroundColor = ConsoleColor.Red;
+                sonidogana();
                 Console.WriteLine("\nPresiona una tecla para volver al Casino...");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.ReadKey();
@@ -39,7 +51,7 @@ namespace BiblioCasino
             }
             else 
             {
-                Console.WriteLine("Ingrese un monto valido ");
+                Console.WriteLine("ERROR!,Ingrese un monto valido ");
             }
 
 
@@ -58,8 +70,9 @@ namespace BiblioCasino
 
             foreach (string leersimbolos in resultado) //leemos el resultado
             {
-
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write($"{leersimbolos,-8}| ");
+                Console.ForegroundColor = ConsoleColor.White;
                 Thread.Sleep(250); //pausa para evitar numeros aleatorios iguales
                 Console.Beep(659, 120);
 
@@ -107,6 +120,17 @@ namespace BiblioCasino
             }
             return premio;
 
+        }
+        static void sonidogana() 
+        {
+            Console.Beep(880, 150);  
+            Console.Beep(988, 150); 
+            Console.Beep(1047, 150); 
+            Console.Beep(1175, 150); 
+            Console.Beep(1319, 300);
+            Thread.Sleep(100);
+            Console.Beep(1047, 150);
+            Console.Beep(1319, 300);
         }
     }
 }
