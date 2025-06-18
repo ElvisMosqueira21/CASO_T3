@@ -35,7 +35,7 @@ namespace BiblioCasino
                 for (int i = 0; i < 4; i++)
                 {
                     PremioTotal = PremioTotal + filaspantalla(moneda);
-                    Thread.Sleep(500);
+                    Thread.Sleep(500);//pausa para evitar numeros aleatorios iguales
                 }
                 
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -73,7 +73,7 @@ namespace BiblioCasino
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write($"{leersimbolos,-8}| ");
                 Console.ForegroundColor = ConsoleColor.White;
-                Thread.Sleep(250); //pausa para evitar numeros aleatorios iguales
+                Thread.Sleep(250); 
                 Console.Beep(659, 120);
 
             }
