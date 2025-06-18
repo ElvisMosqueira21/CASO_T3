@@ -51,7 +51,7 @@ namespace BiblioCasino
                             Console.WriteLine("║  Ingrese su NÚMERO de la SUERTE🍀 (1-10)  ║");
                             Console.WriteLine(" ╚═════════════════════════════════════════╝");
                             int Numero1 = int.Parse(Console.ReadLine());
-                            Valor = random.Next(1, 10);
+                            Valor = random.Next(1, 11);
                             if (Numero1 > 0 & Numero1 < 11)
                             {
                                 if (Valor == Numero1)
@@ -80,7 +80,7 @@ namespace BiblioCasino
                             Console.WriteLine("║ Ingrese su NÚMERO de la SUERTE🍀 (1-20)   ║");
                             Console.WriteLine(" ╚═════════════════════════════════════════╝");
                             int Numero2 = int.Parse(Console.ReadLine());
-                            Valor = random.Next(1, 20);
+                            Valor = random.Next(1, 21);
                             if (Numero2 > 0 & Numero2 < 21)
                             {
                                 if (Valor == Numero2)
@@ -109,7 +109,7 @@ namespace BiblioCasino
                             Console.WriteLine("║ Ingrese su NÚMERO de la SUERTE🍀 (1-50)   ║");
                             Console.WriteLine(" ╚═════════════════════════════════════════╝");
                             int Numero3 = int.Parse(Console.ReadLine());
-                            Valor = random.Next(1, 50);
+                            Valor = random.Next(1, 51);
                             if (Numero3 > 0 & Numero3 < 51)
                             {
                                 if (Valor == Numero3)

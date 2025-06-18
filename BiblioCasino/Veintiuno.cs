@@ -8,39 +8,28 @@ namespace BiblioCasino
 {
     public class Veintiuno
     {
-        private class PlayingCard
+        public class PlayingCard
         {
-
             public string Palo;
             public int Valor;
             public int Puntos;
 
             public PlayingCard(int s, int v)
             {
-                Valor = v;
-                switch (s)
+                Valor = v; // numero de cartes de 1-13
+                switch (s) // num a simbolo
                 {
-                    case 1:
-                        Palo = "♣";
-                        break;
-                    case 2:
-                        Palo = "♦";
-                        break;
-                    case 3:
-                        Palo = "♥";
-                        break;
-                    case 4:
-                        Palo = "♠";
-                        break;
-                    default:
-                        Palo = "";
-                        break;
+                    case 1: Palo = "♣"; break;
+                    case 2: Palo = "♦"; break; //simbolos de cartas (palo)
+                    case 3: Palo = "♥"; break;
+                    case 4: Palo = "♠"; break;
+                    default: Palo = ""; break;
                 }
-
-                Puntos = (Valor > 10) ? 10 : (Valor == 1 ? 11 : Valor);
+                Puntos = (Valor > 10) ? 10 : (Valor == 1 ? 11 : Valor); // puntos 
             }
         }
-        private class Player
+
+        public class Player
         {
             public PlayingCard[] mano = new PlayingCard[5];
             public int cartasEnMano = 0;
@@ -48,13 +37,13 @@ namespace BiblioCasino
             public string name;
         }
 
-        private PlayingCard[] baraja;
-        private int puntero = 0;
+        public PlayingCard[] baraja;
+        public int puntero = 0;
 
         public Veintiuno()
         {
             baraja = GenerarBaraja();
-            MezclarBaraja(ref baraja);
+            MezclarBaraja(ref baraja); // mescla y altera el arreglo original
         }
 
         public void Jugar()
@@ -62,10 +51,14 @@ namespace BiblioCasino
             string jugarOtraVez;
             string nombreJugador = "";
 
+            Console.WriteLine("╔═════════════════════════════════════╗");
+            Console.WriteLine("║        BIENVENIDO AL VEINTIUNO      ║");
+            Console.WriteLine("╚═════════════════════════════════════╝\n");
+
             do
             {
                 puntero = 0;
-                baraja = GenerarBaraja();
+                baraja = GenerarBaraja(); // genera y mescla la baraja
                 MezclarBaraja(ref baraja);
 
                 Player jugador = new Player();
@@ -77,7 +70,7 @@ namespace BiblioCasino
                 Console.Write("Por favor, introduce el nombre del crupier: ");
                 crupier.name = Console.ReadLine();
 
-                RobarCarta(ref jugador);
+                RobarCarta(ref jugador); // roba 2 cartas 
                 RobarCarta(ref jugador);
                 VerificarAses(ref jugador);
                 MostrarMano(jugador);
@@ -109,7 +102,7 @@ namespace BiblioCasino
                     MostrarMano(crupier);
                     bool crupierVivo = VerificarPuntos(crupier);
 
-                    while (crupierVivo && crupier.puntos < 17 && crupier.cartasEnMano < 5)
+                    while (crupierVivo && crupier.puntos < 15 && crupier.cartasEnMano < 5)
                     {
                         Console.WriteLine("El crupier pide una carta...");
                         Console.ReadLine();
@@ -132,48 +125,49 @@ namespace BiblioCasino
 
             } while (jugarOtraVez == "Y");
 
-            Console.WriteLine($"\nGracias por jugar, {nombreJugador}. ¡Hasta la próxima!");
+            Console.WriteLine($"\n╔════════════════════════════════════════╗");
+            Console.WriteLine($" Gracias por jugar,{nombreJugador,-15} ");
+            Console.WriteLine("╚════════════════════════════════════════╝");
         }
 
-        
 
-        private PlayingCard[] GenerarBaraja()
+        public PlayingCard[] GenerarBaraja()
         {
-            PlayingCard[] baraja = new PlayingCard[52];
+            PlayingCard[] baraja = new PlayingCard[52]; //crea arreglo de52 c.
             int contador = 0;
-            for (int palo = 1; palo < 5; palo++)
+            for (int palo = 1; palo < 5; palo++)  // simbolo de cartas
             {
-                for (int valor = 1; valor < 14; valor++)
+                for (int valor = 1; valor < 14; valor++)  //1 as 13 rey
                 {
-                    baraja[contador++] = new PlayingCard(palo, valor);
+                    baraja[contador++] = new PlayingCard(palo, valor); //crea una carta con p,v y almacena luego incrementa contador
                 }
             }
             return baraja;
         }
 
-        private void MezclarBaraja(ref PlayingCard[] baraja)
+        public void MezclarBaraja(ref PlayingCard[] baraja)  //cartas 52 almacena en el arreglo baraja
         {
             Random rnd = new Random();
-            for (int i = 0; i < baraja.Length; i++)
+            for (int i = 0; i < baraja.Length; i++) // 0-51
             {
-                int r = rnd.Next(baraja.Length);
+                int r = rnd.Next(baraja.Length); // posicion aleatoria r
                 var temp = baraja[i];
-                baraja[i] = baraja[r];
-                baraja[r] = temp;
+                baraja[i] = baraja[r];  // cambia la carta actual i 
+                baraja[r] = temp;       // con la carta aleatoria r
             }
         }
 
-        private void RobarCarta(ref Player jugador)
+        public void RobarCarta(ref Player jugador)
         {
             PlayingCard siguienteCarta = baraja[puntero++];
-            if (jugador.cartasEnMano < 5)
+            if (jugador.cartasEnMano < 5) // max 5 cartas
             {
                 jugador.mano[jugador.cartasEnMano++] = siguienteCarta;
-                jugador.puntos += siguienteCarta.Puntos;
+                jugador.puntos += siguienteCarta.Puntos; // suma de carta + suma en mano
             }
         }
 
-        private bool VerificarPuntos(Player jugador)
+        public bool VerificarPuntos(Player jugador)
         {
             if (jugador.puntos > 21)
             {
@@ -183,7 +177,7 @@ namespace BiblioCasino
             return true;
         }
 
-        private void VerificarAses(ref Player jugador)
+        public void VerificarAses(ref Player jugador)
         {
             if (jugador.puntos > 21)
             {
@@ -199,31 +193,39 @@ namespace BiblioCasino
             }
         }
 
-        private void MostrarMano(Player jugador)
+        public void MostrarMano(Player jugador)
         {
-            Console.Write("Mano actual: ");
+            Console.WriteLine($"\n╔══════════════════════════════════╗");
+            Console.WriteLine($" Jugador: {jugador.name,-15}");
+            Console.Write(" Mano: ");
             for (int i = 0; i < jugador.cartasEnMano; i++)
             {
                 MostrarSimboloCarta(jugador.mano[i]);
             }
-            Console.WriteLine(" Puntos actuales: {0}", jugador.puntos);
+            int espacios = 28 - (jugador.cartasEnMano * 4);
+            Console.Write(new string(' ', espacios));
+            Console.WriteLine("");
+            Console.WriteLine($" Puntos: {jugador.puntos,-24}");
+            Console.WriteLine("╚══════════════════════════════════╝\n");
         }
 
-        private void MostrarSimboloCarta(PlayingCard carta)
+        public void MostrarSimboloCarta(PlayingCard carta)
         {
             switch (carta.Valor)
             {
-                case 1: Console.Write("A{0} ", carta.Palo); break;
-                case 11: Console.Write("J{0} ", carta.Palo); break;
-                case 12: Console.Write("Q{0} ", carta.Palo); break;
-                case 13: Console.Write("K{0} ", carta.Palo); break;
-                default: Console.Write("{0}{1} ", carta.Valor, carta.Palo); break;
+                case 1: Console.Write($"A{carta.Palo} "); break;
+                case 11: Console.Write($"J{carta.Palo} "); break;
+                case 12: Console.Write($"Q{carta.Palo} "); break;
+                case 13: Console.Write($"K{carta.Palo} "); break;
+                default: Console.Write($"{carta.Valor}{carta.Palo} "); break;
             }
         }
 
-        private void CalcularGanador(Player jugador, Player crupier)
+        public void CalcularGanador(Player jugador, Player crupier)
         {
-            Console.WriteLine("\nResultado final:");
+            Console.WriteLine("═════════════════════════════════════");
+            Console.WriteLine("       RESULTADO FINAL DE LA RONDA");
+            Console.WriteLine("═════════════════════════════════════");
             Console.WriteLine($"{jugador.name} tiene {jugador.puntos} puntos con {jugador.cartasEnMano} cartas.");
             Console.WriteLine($"{crupier.name} tiene {crupier.puntos} puntos con {crupier.cartasEnMano} cartas.\n");
 
@@ -258,14 +260,16 @@ namespace BiblioCasino
             {
                 Console.WriteLine($"¡{crupier.name} gana con más puntos!");
             }
-            else // empate
+            else
             {
                 if (jugadorCincoCartas && crupierCincoCartas)
                     Console.WriteLine("¡Empate! Ambos lograron el truco de 5 cartas.");
                 else
                     Console.WriteLine("¡Empate por puntos!");
             }
+
+            Console.WriteLine("═════════════════════════════════════\n");
         }
-        
+
     }
 }
